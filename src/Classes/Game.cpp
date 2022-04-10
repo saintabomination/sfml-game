@@ -5,6 +5,12 @@
 void Game::initWindow()
 {
   this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "SFML");
+  this->window->setFramerateLimit(60);
+}
+
+void Game::initPlayer()
+{
+  this->player.init("src/Assets/Textures/player.png");
 }
 
 // Constructor and Destructor
@@ -12,6 +18,7 @@ void Game::initWindow()
 Game::Game()
 {
   this->initWindow();
+  this->initPlayer();
 }
 
 Game::~Game()
@@ -37,16 +44,28 @@ void Game::updateSFMLEvents()
   }
 }
 
+void Game::updatePlayer()
+{
+  this->player.update();
+}
+
 void Game::update()
 {
   this->updateSFMLEvents();
+  this->updatePlayer();
 }
 
 // Render Functions
 
+void Game::renderPlayer()
+{
+  this->player.render(*this->window);
+}
+
 void Game::render()
 {
   this->window->clear();
+  this->renderPlayer();
   this->window->display();
 }
 
