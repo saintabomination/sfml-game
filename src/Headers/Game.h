@@ -10,6 +10,10 @@ class Game {
     sf::Event sfEvent;
     Player player;
 
+    // Delta Time
+    sf::Clock dtClock;
+    float dt;
+
     // Initializers
     void initWindow();
     void initPlayer();
@@ -19,8 +23,12 @@ class Game {
     Game();
     virtual ~Game();
 
+    // Accessors
+    const float getDt() const;
+
     // Update Functions
     void updateSFMLEvents();
+    void updateDt();
     void updatePlayer();
     void update();
 
