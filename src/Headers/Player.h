@@ -8,14 +8,13 @@ class Player {
     sf::Texture texture;
     sf::Sprite sprite;
 
-    // Position
-    float x;
-    float y;
+    // Physics
+    float movementSpeed = 20.f;
 
     // Initializers
     void initTexture(std::string texturePath);
     void initSprite();
-    void initValues();
+    void initPhysics();
 
   public:
     // Constructor and Destructor
@@ -28,7 +27,7 @@ class Player {
     // Functions
     void update();
     void render(sf::RenderTarget& target);
-    void move(const float x, const float y);
+    void move(const int x, const int y);
 };
 
 #endif // PLAYER_H

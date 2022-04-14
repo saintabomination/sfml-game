@@ -60,11 +60,20 @@ void Game::updateMovement()
 {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
   {
-    player.move(-5.f, 0.f);
+    player.move(0, -1);
   }
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
   {
-    player.move(5.f, 0.f);
+    player.move(0, 1);
+  }
+
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+  {
+    player.move(-1, 0);
+  }
+  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+  {
+    player.move(1, 0);
   }
 }
 

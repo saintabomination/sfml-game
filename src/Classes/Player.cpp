@@ -15,17 +15,16 @@ void Player::initSprite()
   this->sprite.setTexture(this->texture);
 }
 
-void Player::initValues()
+void Player::initPhysics()
 {
-  this->x = 0.f;
-  this->y = 0.f;
+    this->movementSpeed = 20.f;
 }
 
 // Constructor and Destructor
 
 Player::Player()
 {
-  this->initValues();
+  this->initPhysics();
 }
 
 Player::~Player()
@@ -53,10 +52,8 @@ void Player::render(sf::RenderTarget& target)
   target.draw(this->sprite);
 }
 
-void Player::move(const float x, const float y)
+void Player::move(const int x, const int y)
 {
-  this->x += x;
-  this->y += y;
-
-  std::cout << "Player Position: " << this->x << "; " << this->y << std::endl;
+  this->sprite.move(sf::Vector2f(x * this->movementSpeed, y * this->movementSpeed));
+  std::cout << "Player Position: " << this->sprite.getGlobalBounds().left << "; " << this->sprite.getGlobalBounds().top << std::endl;
 }
