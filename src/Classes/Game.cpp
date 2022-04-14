@@ -45,29 +45,6 @@ void Game::updateSFMLEvents()
         this->window->close();
         break;
 
-      case sf::Event::KeyPressed:
-        switch (this->sfEvent.key.code)
-        {
-          case sf::Keyboard::Key::W:
-            std::cout << "W" << std::endl;
-            break;
-
-          case sf::Keyboard::Key::S:
-            std::cout << "S" << std::endl;
-            break;
-
-          case sf::Keyboard::Key::A:
-            std::cout << "A" << std::endl;
-            break;
-
-          case sf::Keyboard::Key::D:
-            std::cout << "D" << std::endl;
-            break;
-
-          default:
-            break;
-        }
-
       default:
         break;
     }
@@ -79,6 +56,18 @@ void Game::updateDt()
   this->dt = this->dtClock.restart().asSeconds();
 }
 
+void Game::updateMovement()
+{
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+  {
+    player.move(-5.f, 0.f);
+  }
+  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+  {
+    player.move(5.f, 0.f);
+  }
+}
+
 void Game::updatePlayer()
 {
   this->player.update();
@@ -88,6 +77,7 @@ void Game::update()
 {
   this->updateSFMLEvents();
   this->updateDt();
+  this->updateMovement();
   this->updatePlayer();
 }
 

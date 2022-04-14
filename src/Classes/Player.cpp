@@ -15,16 +15,30 @@ void Player::initSprite()
   this->sprite.setTexture(this->texture);
 }
 
+void Player::initValues()
+{
+  this->x = 0.f;
+  this->y = 0.f;
+}
+
 // Constructor and Destructor
 
 Player::Player()
 {
-
+  this->initValues();
 }
 
 Player::~Player()
 {
 
+}
+
+// Public Initializer
+
+void Player::init(std::string texturePath)
+{
+  this->initTexture(texturePath);
+  this->initSprite();
 }
 
 // Functions
@@ -39,10 +53,10 @@ void Player::render(sf::RenderTarget& target)
   target.draw(this->sprite);
 }
 
-// Public Initializer
-
-void Player::init(std::string texturePath)
+void Player::move(const float x, const float y)
 {
-  this->initTexture(texturePath);
-  this->initSprite();
+  this->x += x;
+  this->y += y;
+
+  std::cout << "Player Position: " << this->x << "; " << this->y << std::endl;
 }
