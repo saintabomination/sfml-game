@@ -9,7 +9,7 @@ class Player {
     sf::Sprite sprite;
 
     // Physics
-    float movementSpeed = 20.f;
+    float movementSpeed;
 
     // Initializers
     void initTexture(std::string texturePath);

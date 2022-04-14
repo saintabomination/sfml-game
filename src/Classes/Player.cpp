@@ -1,4 +1,7 @@
 #include "../Headers/Player.h"
+#include "../Headers/Game.h"
+
+extern Game game;
 
 // Initializers
 
@@ -17,7 +20,7 @@ void Player::initSprite()
 
 void Player::initPhysics()
 {
-    this->movementSpeed = 20.f;
+    this->movementSpeed = 80.f;
 }
 
 // Constructor and Destructor
@@ -54,6 +57,12 @@ void Player::render(sf::RenderTarget& target)
 
 void Player::move(const int x, const int y)
 {
-  this->sprite.move(sf::Vector2f(x * this->movementSpeed, y * this->movementSpeed));
+  this->sprite.move(
+    sf::Vector2f(
+      x * this->movementSpeed * game.getDt(),
+      y * this->movementSpeed * game.getDt()
+    )
+  );
+
   std::cout << "Player Position: " << this->sprite.getGlobalBounds().left << "; " << this->sprite.getGlobalBounds().top << std::endl;
 }
