@@ -10,11 +10,11 @@ class Block
     sf::RectangleShape shape;
 
     // Initializers
-    void initShape();
+    void initShape(const float x, const float y);
 
   public:
     // Constructor and Destructor
-    Block(sf::Texture* texture);
+    Block(const float x, const float y, sf::Texture* texture);
     virtual ~Block();
 
     // Functions

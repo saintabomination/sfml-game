@@ -48,7 +48,7 @@ void Game::initTextures()
 
 void Game::initBlocks()
 {
-  this->blocks.push_back(Block(&this->textures[0]));
+  this->blocks.push_back(Block(32.f, 0.f, &this->textures[0]));
 }
 
 // Constructor and Destructor
