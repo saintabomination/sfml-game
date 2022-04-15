@@ -4,7 +4,8 @@
 #include "../Headers.h"
 #include "Player.h"
 
-class Game {
+class Game
+{
   private:
     sf::RenderWindow* window;
     sf::Event sfEvent;

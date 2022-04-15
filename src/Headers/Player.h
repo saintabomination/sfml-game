@@ -3,7 +3,8 @@
 
 #include "../Headers.h"
 
-class Player {
+class Player
+{
   private:
     sf::Texture texture;
     sf::Sprite sprite;
