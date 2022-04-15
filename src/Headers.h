@@ -4,6 +4,8 @@
 // SFML
 #include <SFML/Graphics.hpp>
 
+// Other
+#include <vector>
 #include <string>
 #include <fstream>
 #include <iostream>

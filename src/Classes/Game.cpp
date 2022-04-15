@@ -29,12 +29,36 @@ void Game::initPlayer()
   this->player.setSpeed(80.f);
 }
 
+// Non-member function to simplify loading textures
+sf::Texture loadTexture(std::string path)
+{
+  sf::Texture loadedTexture;
+  if (!loadedTexture.loadFromFile(path))
+  {
+    std::cout << "ERROR::GAME::CANT_LOAD_TEXTURE" << std::endl;
+  }
+
+  return loadedTexture;
+}
+
+void Game::initTextures()
+{
+  this->textures.push_back(loadTexture("src/Assets/Textures/block.png"));
+}
+
+void Game::initBlocks()
+{
+  this->blocks.push_back(Block(&this->textures[0]));
+}
+
 // Constructor and Destructor
 
 Game::Game()
 {
   this->initWindow();
   this->initPlayer();
+  this->initTextures();
+  this->initBlocks();
 }
 
 Game::~Game()
@@ -127,10 +151,16 @@ void Game::renderPlayer()
   this->player.render(*this->window);
 }
 
+void Game::renderBlocks()
+{
+  for (Block block : this->blocks) block.render(*this->window);
+}
+
 void Game::render()
 {
   this->window->clear();
   this->renderPlayer();
+  this->renderBlocks();
   this->window->display();
 }
 

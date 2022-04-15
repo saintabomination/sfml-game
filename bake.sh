@@ -23,7 +23,6 @@ then
   echo "    // Constructor and Destructor" >> src/Headers/${2^}.h
   echo "    ${2^}();" >> src/Headers/${2^}.h
   echo "    virtual ~${2^}();" >> src/Headers/${2^}.h
-  echo "" >> src/Headers/${2^}.h
   echo "};" >> src/Headers/${2^}.h
   echo "" >> src/Headers/${2^}.h
   echo "#endif // ${2^^}_H" >> src/Headers/${2^}.h

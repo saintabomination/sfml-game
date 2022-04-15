@@ -3,6 +3,7 @@
 
 #include "../Headers.h"
 #include "Player.h"
+#include "Block.h"
 
 class Game
 {
@@ -10,6 +11,8 @@ class Game
     sf::RenderWindow* window;
     sf::Event sfEvent;
     Player player;
+    std::vector<sf::Texture> textures;
+    std::vector<Block> blocks;
 
     // Delta Time
     sf::Clock dtClock;
@@ -18,6 +21,8 @@ class Game
     // Initializers
     void initWindow();
     void initPlayer();
+    void initTextures();
+    void initBlocks();
 
   public:
     // Constructor and Destructor
@@ -37,6 +42,7 @@ class Game
 
     // Render Functions
     void renderPlayer();
+    void renderBlocks();
     void render();
 
     // Functions
