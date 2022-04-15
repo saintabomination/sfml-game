@@ -18,16 +18,11 @@ void Player::initSprite()
   this->sprite.setTexture(this->texture);
 }
 
-void Player::initPhysics()
-{
-    this->movementSpeed = 80.f;
-}
-
 // Constructor and Destructor
 
 Player::Player()
 {
-  this->initPhysics();
+
 }
 
 Player::~Player()
@@ -35,19 +30,24 @@ Player::~Player()
 
 }
 
-// Public Initializer
+// Setters
 
-void Player::init(std::string texturePath)
+void Player::setTexture(std::string texturePath)
 {
   this->initTexture(texturePath);
   this->initSprite();
+}
+
+void Player::setSpeed(const float speed)
+{
+  this->speed = speed;
 }
 
 // Functions
 
 void Player::update()
 {
-
+  
 }
 
 void Player::render(sf::RenderTarget& target)
@@ -59,10 +59,8 @@ void Player::move(const int x, const int y)
 {
   this->sprite.move(
     sf::Vector2f(
-      x * this->movementSpeed * game.getDt(),
-      y * this->movementSpeed * game.getDt()
+      x * this->speed * game.getDt(),
+      y * this->speed * game.getDt()
     )
   );
-
-  std::cout << "Player Position: " << this->sprite.getGlobalBounds().left << "; " << this->sprite.getGlobalBounds().top << std::endl;
 }

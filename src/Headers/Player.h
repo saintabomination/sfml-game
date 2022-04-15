@@ -9,20 +9,20 @@ class Player {
     sf::Sprite sprite;
 
     // Physics
-    float movementSpeed;
+    float speed;
 
     // Initializers
     void initTexture(std::string texturePath);
     void initSprite();
-    void initPhysics();
 
   public:
     // Constructor and Destructor
     Player();
     virtual ~Player();
 
-    // Public Initializer
-    void init(std::string texturePath);
+    // Setters
+    void setTexture(std::string texturePath);
+    void setSpeed(const float speed);
 
     // Functions
     void update();

@@ -10,7 +10,8 @@ void Game::initWindow()
 
 void Game::initPlayer()
 {
-  this->player.init("src/Assets/Textures/player.png");
+  this->player.setTexture("src/Assets/Textures/player.png");
+  this->player.setSpeed(80.f);
 }
 
 // Constructor and Destructor
