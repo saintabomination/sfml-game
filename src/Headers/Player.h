@@ -24,6 +24,9 @@ class Player {
     void setTexture(std::string texturePath);
     void setSpeed(const float speed);
 
+    // Accessors
+    const sf::FloatRect getBounds() const;
+
     // Functions
     void update();
     void render(sf::RenderTarget& target);

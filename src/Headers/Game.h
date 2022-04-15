@@ -31,6 +31,7 @@ class Game {
     void updateDt();
     void updateMovement();
     void updatePlayer();
+    void updateView();
     void update();
 
     // Render Functions

@@ -98,12 +98,26 @@ void Game::updatePlayer()
   this->player.update();
 }
 
+void Game::updateView()
+{
+  // Centering the camera
+  this->window->setView(sf::View(
+    sf::FloatRect(
+      this->player.getBounds().left - this->window->getSize().x / 2 + 16,
+      this->player.getBounds().top - this->window->getSize().y / 2 + 16,
+      this->window->getSize().x,
+      this->window->getSize().y
+    )
+  ));
+}
+
 void Game::update()
 {
   this->updateSFMLEvents();
   this->updateDt();
   this->updateMovement();
   this->updatePlayer();
+  this->updateView();
 }
 
 // Render Functions
