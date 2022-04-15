@@ -4,8 +4,25 @@
 
 void Game::initWindow()
 {
-  this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "SFML");
-  this->window->setFramerateLimit(60);
+  std::string windowTitle = "SFML";
+  unsigned int windowWidth = 400;
+  unsigned int windowHeight = 300;
+  unsigned int windowFPS = 60;
+
+  std::ifstream configFile("src/Config/Window.ini");
+  if (!configFile.is_open())
+  {
+    std::cout << "ERROR::GAME::CANT_LOAD_WINDOW_CONFIG" << std::endl;
+  }
+
+  std::string line;
+  while (getline(configFile, line))
+  {
+    std::cout << line << std::endl;
+  }
+
+  this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowWidth), windowTitle);
+  this->window->setFramerateLimit(windowFPS);
 }
 
 void Game::initPlayer()
