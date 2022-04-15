@@ -49,6 +49,54 @@ void Game::initTextures()
 void Game::initBlocks()
 {
   this->blocks.push_back(Block(32.f, 0.f, &this->textures[0]));
+  this->blocks.push_back(Block(64.f, 0.f, &this->textures[0]));
+  this->blocks.push_back(Block(96.f, 0.f, &this->textures[0]));
+  this->blocks.push_back(Block(128.f, 0.f, &this->textures[0]));
+  this->blocks.push_back(Block(160.f, 0.f, &this->textures[0]));
+  this->blocks.push_back(Block(192.f, 0.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 0.f, &this->textures[0]));
+  this->blocks.push_back(Block(32.f, 32.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 32.f, &this->textures[0]));
+  this->blocks.push_back(Block(32.f, 64.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 64.f, &this->textures[0]));
+  this->blocks.push_back(Block(256.f, 64.f, &this->textures[0]));
+  this->blocks.push_back(Block(288.f, 64.f, &this->textures[0]));
+  this->blocks.push_back(Block(0.f, 96.f, &this->textures[0]));
+  this->blocks.push_back(Block(32.f, 96.f, &this->textures[0]));
+  this->blocks.push_back(Block(64.f, 96.f, &this->textures[0]));
+  this->blocks.push_back(Block(96.f, 96.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 96.f, &this->textures[0]));
+  this->blocks.push_back(Block(288.f, 96.f, &this->textures[0]));
+  this->blocks.push_back(Block(0.f, 128.f, &this->textures[0]));
+  this->blocks.push_back(Block(96.f, 128.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 128.f, &this->textures[0]));
+  this->blocks.push_back(Block(288.f, 128.f, &this->textures[0]));
+  this->blocks.push_back(Block(0.f, 160.f, &this->textures[0]));
+  this->blocks.push_back(Block(96.f, 160.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 160.f, &this->textures[0]));
+  this->blocks.push_back(Block(288.f, 160.f, &this->textures[0]));
+  this->blocks.push_back(Block(0.f, 192.f, &this->textures[0]));
+  this->blocks.push_back(Block(32.f, 192.f, &this->textures[0]));
+  this->blocks.push_back(Block(64.f, 192.f, &this->textures[0]));
+  this->blocks.push_back(Block(96.f, 192.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 192.f, &this->textures[0]));
+  this->blocks.push_back(Block(288.f, 192.f, &this->textures[0]));
+  this->blocks.push_back(Block(256.f, 192.f, &this->textures[0]));
+  this->blocks.push_back(Block(32.f, 224.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 224.f, &this->textures[0]));
+  this->blocks.push_back(Block(32.f, 256.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 256.f, &this->textures[0]));
+  this->blocks.push_back(Block(32.f, 288.f, &this->textures[0]));
+  this->blocks.push_back(Block(96.f, 288.f, &this->textures[0]));
+  this->blocks.push_back(Block(128.f, 288.f, &this->textures[0]));
+  this->blocks.push_back(Block(160.f, 288.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 288.f, &this->textures[0]));
+  this->blocks.push_back(Block(32.f, 320.f, &this->textures[0]));
+  this->blocks.push_back(Block(64.f, 320.f, &this->textures[0]));
+  this->blocks.push_back(Block(96.f, 320.f, &this->textures[0]));
+  this->blocks.push_back(Block(160.f, 320.f, &this->textures[0]));
+  this->blocks.push_back(Block(192.f, 320.f, &this->textures[0]));
+  this->blocks.push_back(Block(224.f, 320.f, &this->textures[0]));
 }
 
 // Constructor and Destructor
