@@ -14,14 +14,12 @@ void Game::initWindow()
   {
     std::cout << "ERROR::GAME::CANT_LOAD_WINDOW_CONFIG" << std::endl;
   }
-
-  std::string line;
-  while (getline(configFile, line))
+  else
   {
-    std::cout << line << std::endl;
+    configFile >> windowTitle >> windowWidth >> windowHeight >> windowFPS;
   }
 
-  this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowWidth), windowTitle);
+  this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), windowTitle);
   this->window->setFramerateLimit(windowFPS);
 }
 

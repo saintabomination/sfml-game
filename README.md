@@ -26,10 +26,12 @@ I don't know how to use them. Will hopefully fix in the future!
 # Project structure
 
 * source code - `/src/`
+* compile script - `/bake.sh`
 * build directory - `/build/`
 * executable - `/build/sfml-game`
 * class files - `/src/Classes/`
 * header files - `/src/Headers/`
+* configuration files - `/src/Config/`
 * assets - `/src/Assets/`
 
 The `/build/` directory (with the executable) is created when compiling the code.
