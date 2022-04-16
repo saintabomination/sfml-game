@@ -22,8 +22,8 @@ class Game
 
     // Initializers
     void initWindow();
-    void initPlayer();
     void initTextures();
+    void initPlayer();
     void initBlocks();
 
   public:

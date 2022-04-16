@@ -25,7 +25,7 @@ void Game::initWindow()
 
 void Game::initPlayer()
 {
-  this->player.setTexture("src/Assets/Textures/player.png");
+  this->player.setTexture(&this->textures[0]);
   this->player.setSpeed(80.f);
 }
 
@@ -43,6 +43,7 @@ sf::Texture loadTexture(std::string path)
 
 void Game::initTextures()
 {
+  this->textures.push_back(loadTexture("src/Assets/Textures/player.png"));
   this->textures.push_back(loadTexture("src/Assets/Textures/block.png"));
   this->textures.push_back(loadTexture("src/Assets/Textures/bullet.png"));
 }
@@ -62,7 +63,7 @@ void Game::initBlocks()
     {
       if (mapImage.getPixel(x, y) == sf::Color::Black)
       {
-        this->blocks.push_back(Block(x * 32.f, y * 32.f, &this->textures[0]));
+        this->blocks.push_back(Block(x * 32.f, y * 32.f, &this->textures[1]));
       }
     }
   }
@@ -73,8 +74,8 @@ void Game::initBlocks()
 Game::Game()
 {
   this->initWindow();
-  this->initPlayer();
   this->initTextures();
+  this->initPlayer();
   this->initBlocks();
 }
 
@@ -140,7 +141,7 @@ void Game::updateKeys()
       Bullet(
         this->player.getBounds().left,
         this->player.getBounds().top,
-        &this->textures[1]
+        &this->textures[2]
       )
     );
   }

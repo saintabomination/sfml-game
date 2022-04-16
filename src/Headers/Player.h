@@ -2,19 +2,16 @@
 #define PLAYER_H
 
 #include "../Headers.h"
+#include "Entity.h"
 
-class Player
+class Player : public Entity
 {
   private:
-    sf::Texture texture;
-    sf::Sprite sprite;
-
     // Physics
     float speed;
 
     // Initializers
-    void initTexture(std::string texturePath);
-    void initSprite();
+    void initShape();
 
   public:
     // Constructor and Destructor
@@ -22,7 +19,7 @@ class Player
     virtual ~Player();
 
     // Modifiers
-    void setTexture(std::string texturePath);
+    void setTexture(sf::Texture* texture);
     void setSpeed(const float speed);
 
     // Accessors

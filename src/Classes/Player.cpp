@@ -5,24 +5,16 @@ extern Game game;
 
 // Initializers
 
-void Player::initTexture(std::string texturePath)
+void Player::initShape()
 {
-  if (!this->texture.loadFromFile(texturePath))
-  {
-    std::cout << "ERROR::PLAYER::CANT_LOAD_TEXTURE" << std::endl;
-  }
-}
-
-void Player::initSprite()
-{
-  this->sprite.setTexture(this->texture);
+  this->shape.setSize(sf::Vector2f(32.f, 32.f));
 }
 
 // Constructor and Destructor
 
 Player::Player()
 {
-
+  this->initShape();
 }
 
 Player::~Player()
@@ -32,10 +24,9 @@ Player::~Player()
 
 // Modifiers
 
-void Player::setTexture(std::string texturePath)
+void Player::setTexture(sf::Texture* texture)
 {
-  this->initTexture(texturePath);
-  this->initSprite();
+  this->shape.setTexture(texture);
 }
 
 void Player::setSpeed(const float speed)
@@ -47,7 +38,7 @@ void Player::setSpeed(const float speed)
 
 const sf::FloatRect Player::getBounds() const
 {
-  return this->sprite.getGlobalBounds();
+  return this->shape.getGlobalBounds();
 }
 
 // Functions
@@ -59,12 +50,12 @@ void Player::update()
 
 void Player::render(sf::RenderTarget& target)
 {
-  target.draw(this->sprite);
+  target.draw(this->shape);
 }
 
 void Player::move(const int x, const int y)
 {
-  this->sprite.move(
+  this->shape.move(
     sf::Vector2f(
       x * this->speed * game.getDt(),
       y * this->speed * game.getDt()
