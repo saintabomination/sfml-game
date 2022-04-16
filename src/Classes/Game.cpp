@@ -48,6 +48,11 @@ void Game::initTextures()
   this->textures.push_back(loadTexture("src/Assets/Textures/bullet.png"));
 }
 
+void Game::initSettings()
+{
+  this->bulletInterval = 0.2f;
+}
+
 void Game::initBlocks()
 {
   sf::Image mapImage;
@@ -75,6 +80,7 @@ Game::Game()
 {
   this->initWindow();
   this->initTextures();
+  this->initSettings();
   this->initPlayer();
   this->initBlocks();
 }
@@ -109,9 +115,13 @@ void Game::updateSFMLEvents()
   }
 }
 
-void Game::updateDt()
+void Game::updateClocks()
 {
+  // Delta Time
   this->dt = this->dtClock.restart().asSeconds();
+  
+  // Bullet Clock
+  this->bulletTimer = this->bulletClock.getElapsedTime().asSeconds();
 }
 
 void Game::updateKeys()
@@ -136,7 +146,7 @@ void Game::updateKeys()
   }
 
   // Debug: Spawning bullets
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E))
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E) && this->bulletTimer > this->bulletInterval)
   {
     this->bullets.push_back(
       Bullet(
@@ -145,6 +155,7 @@ void Game::updateKeys()
         &this->textures[2]
       )
     );
+    this->bulletClock.restart();
   }
 }
 
@@ -169,7 +180,7 @@ void Game::updateView()
 void Game::update()
 {
   this->updateSFMLEvents();
-  this->updateDt();
+  this->updateClocks();
   this->updateKeys();
   this->updatePlayer();
   this->updateView();

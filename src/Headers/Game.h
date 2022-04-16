@@ -16,13 +16,19 @@ class Game
     std::vector<Block> blocks;
     std::vector<Bullet> bullets;
 
-    // Delta Time
+    // Settings
+    float bulletInterval;
+
+    // Clocks
     sf::Clock dtClock;
+    sf::Clock bulletClock;
     float dt;
+    float bulletTimer;
 
     // Initializers
     void initWindow();
     void initTextures();
+    void initSettings();
     void initPlayer();
     void initBlocks();
 
@@ -36,7 +42,7 @@ class Game
 
     // Update Functions
     void updateSFMLEvents();
-    void updateDt();
+    void updateClocks();
     void updateKeys();
     void updatePlayer();
     void updateView();
