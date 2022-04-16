@@ -116,6 +116,7 @@ void Game::updateDt()
 
 void Game::updateKeys()
 {
+  // WASD Movement
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
   {
     player.move(0, -1);
@@ -139,8 +140,8 @@ void Game::updateKeys()
   {
     this->bullets.push_back(
       Bullet(
-        this->player.getBounds().left,
-        this->player.getBounds().top,
+        this->player.getBounds().left + 12.f,
+        this->player.getBounds().top + 12.f,
         &this->textures[2]
       )
     );
