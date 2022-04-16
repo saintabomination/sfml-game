@@ -112,7 +112,7 @@ void Game::updateDt()
   this->dt = this->dtClock.restart().asSeconds();
 }
 
-void Game::updateMovement()
+void Game::updateKeys()
 {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
   {
@@ -155,7 +155,7 @@ void Game::update()
 {
   this->updateSFMLEvents();
   this->updateDt();
-  this->updateMovement();
+  this->updateKeys();
   this->updatePlayer();
   this->updateView();
 }
