@@ -2,13 +2,11 @@
 #define BULLET_H
 
 #include "../Headers.h"
+#include "Entity.h"
 
-class Bullet
+class Bullet : public Entity
 {
   private:
-    sf::Texture* texture;
-    sf::RectangleShape shape;
-
     // Initializers
     void initShape(const float x, const float y);
 
@@ -18,6 +16,7 @@ class Bullet
     virtual ~Bullet();
 
     // Functions
+    void update();
     void render(sf::RenderTarget& target);
 };
 

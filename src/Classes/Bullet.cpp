@@ -24,6 +24,11 @@ Bullet::~Bullet()
 
 // Functions
 
+void Bullet::update()
+{
+
+}
+
 void Bullet::render(sf::RenderTarget& target)
 {
   target.draw(this->shape);

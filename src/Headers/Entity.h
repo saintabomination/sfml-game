@@ -5,21 +5,21 @@
 
 class Entity
 {
-  private:
+  protected:
     sf::Texture* texture;
     sf::RectangleShape shape;
-    
-    // Initializers
-    void initShape(const float x, const float y, const float size);
 
   public:
     // Constructor and Destructor
-    Entity(const float x, const float y, const float size, sf::Texture* texture);
+    Entity();
     virtual ~Entity();
+    
+    // Modifiers
+    void setTexure(sf::Texture* texture);
 
     // Functions
-    void update();
-    void render(sf::RenderTarget& target);
+    virtual void update() = 0;
+    virtual void render(sf::RenderTarget& target) = 0;
 };
 
 #endif // ENTITY_H

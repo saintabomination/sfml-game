@@ -30,7 +30,7 @@ Player::~Player()
 
 }
 
-// Setters
+// Modifiers
 
 void Player::setTexture(std::string texturePath)
 {

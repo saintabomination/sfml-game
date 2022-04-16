@@ -21,7 +21,7 @@ class Player
     Player();
     virtual ~Player();
 
-    // Setters
+    // Modifiers
     void setTexture(std::string texturePath);
     void setSpeed(const float speed);
 
