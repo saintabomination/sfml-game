@@ -44,6 +44,7 @@ sf::Texture loadTexture(std::string path)
 void Game::initTextures()
 {
   this->textures.push_back(loadTexture("src/Assets/Textures/block.png"));
+  this->textures.push_back(loadTexture("src/Assets/Textures/bullet.png"));
 }
 
 void Game::initBlocks()
@@ -131,6 +132,18 @@ void Game::updateKeys()
   {
     player.move(1, 0);
   }
+
+  // Debug: Spawning bullets
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E))
+  {
+    this->bullets.push_back(
+      Bullet(
+        this->player.getBounds().left,
+        this->player.getBounds().top,
+        &this->textures[1]
+      )
+    );
+  }
 }
 
 void Game::updatePlayer()
@@ -172,11 +185,17 @@ void Game::renderBlocks()
   for (Block block : this->blocks) block.render(*this->window);
 }
 
+void Game::renderBullets()
+{
+  for (Bullet bullet : this->bullets) bullet.render(*this->window);
+}
+
 void Game::render()
 {
   this->window->clear();
   this->renderPlayer();
   this->renderBlocks();
+  this->renderBullets();
   this->window->display();
 }
 

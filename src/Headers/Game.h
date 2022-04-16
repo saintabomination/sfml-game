@@ -4,6 +4,7 @@
 #include "../Headers.h"
 #include "Player.h"
 #include "Block.h"
+#include "Bullet.h"
 
 class Game
 {
@@ -13,6 +14,7 @@ class Game
     Player player;
     std::vector<sf::Texture> textures;
     std::vector<Block> blocks;
+    std::vector<Bullet> bullets;
 
     // Delta Time
     sf::Clock dtClock;
@@ -43,6 +45,7 @@ class Game
     // Render Functions
     void renderPlayer();
     void renderBlocks();
+    void renderBullets();
     void render();
 
     // Functions
