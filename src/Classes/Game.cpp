@@ -154,7 +154,7 @@ void Game::updateKeys()
 
 void Game::updateMouse()
 {
-  if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+  if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->bulletSpawnTimer > this->bulletInterval)
   {
     sf::Vector2f mousePos(sf::Mouse::getPosition(*this->window));
     sf::Vector2f playerCenter(
