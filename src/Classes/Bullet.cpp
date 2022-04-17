@@ -12,18 +12,13 @@ void Bullet::initShape(const float x, const float y)
   this->shape.setPosition(sf::Vector2f(x, y));
 }
 
-// Constructor and Destructor
+// Constructor
 
 Bullet::Bullet(const float x, const float y, const float angle, sf::Texture* texture)
 {
   this->texture = texture;
   this->angle = angle;
   this->initShape(x, y);
-}
-
-Bullet::~Bullet()
-{
-
 }
 
 // Accessors

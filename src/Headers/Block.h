@@ -13,9 +13,8 @@ class Block
     void initShape(const float x, const float y);
 
   public:
-    // Constructor and Destructor
+    // Constructor
     Block(const float x, const float y, sf::Texture* texture);
-    virtual ~Block();
 
     // Mutators
     void setTexure(sf::Texture* texture);

@@ -14,9 +14,8 @@ class Player : public Entity
     void initShape();
 
   public:
-    // Constructor and Destructor
+    // Constructor
     Player();
-    virtual ~Player();
 
     // Mutators
     void setTexture(sf::Texture* texture);

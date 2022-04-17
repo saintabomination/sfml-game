@@ -10,16 +10,11 @@ void Player::initShape()
   this->shape.setSize(sf::Vector2f(32.f, 32.f));
 }
 
-// Constructor and Destructor
+// Constructor
 
 Player::Player()
 {
   this->initShape();
-}
-
-Player::~Player()
-{
-
 }
 
 // Mutators

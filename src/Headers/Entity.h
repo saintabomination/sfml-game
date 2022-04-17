@@ -10,11 +10,7 @@ class Entity
     sf::RectangleShape shape;
 
   public:
-    // Constructor and Destructor
-    Entity();
-    virtual ~Entity();
-    
-    // Mutators;
+    // Mutators
     void setTexure(sf::Texture* texture);
 
     // Functions

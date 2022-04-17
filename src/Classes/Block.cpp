@@ -9,17 +9,12 @@ void Block::initShape(const float x, const float y)
   this->shape.setPosition(sf::Vector2f(x, y));
 }
 
-// Constructor and Destructor
+// Constructor
 
 Block::Block(const float x, const float y, sf::Texture* texture)
 {
   this->texture = texture;
   this->initShape(x, y);
-}
-
-Block::~Block()
-{
-
 }
 
 // Mutators
