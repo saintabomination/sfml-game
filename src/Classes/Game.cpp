@@ -154,8 +154,8 @@ void Game::updateKeys()
         this->player.getBounds().left + 12.f,
         this->player.getBounds().top + 12.f,
         // Getting the bullet angle by calculating sine
-        (
-          (MAX_VALUE(0, this->player.getBounds().top) - MIN_VALUE(0, this->player.getBounds().top)) /
+        asin(
+          (std::max(0.f, this->player.getBounds().top) - std::min(0.f, this->player.getBounds().top)) /
           (sqrt(pow(fabs(0 - this->player.getBounds().left), 2) + pow(fabs(0 - this->player.getBounds().top), 2)))
         ),
         &this->textures[2]
@@ -185,7 +185,7 @@ void Game::updateView()
 
 void Game::updateBullets()
 {
-  for (Bullet bullet : this->bullets) bullet.update();
+  for (Bullet& bullet : this->bullets) bullet.update();
 }
 
 void Game::updateBulletDespawns()

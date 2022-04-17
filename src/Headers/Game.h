@@ -2,8 +2,6 @@
 #define GAME_H
 
 #define PI 3.14159265
-#define MAX_VALUE(a, b) ((a > b) ? a : b)
-#define MIN_VALUE(a, b) ((a < b) ? a : b)
 
 #include "../Headers.h"
 #include "Player.h"

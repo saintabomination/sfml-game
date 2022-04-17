@@ -1,4 +1,7 @@
 #include "../Headers/Bullet.h"
+#include "../Headers/Game.h"
+
+extern Game game;
 
 // Initializers
 
@@ -15,7 +18,6 @@ Bullet::Bullet(const float x, const float y, const float angle, sf::Texture* tex
 {
   this->texture = texture;
   this->angle = angle;
-  std::cout << "Bullet Angle: " << this->angle << std::endl;
   this->initShape(x, y);
 }
 
@@ -35,7 +37,7 @@ const float Bullet::getDespawnTimer()
 
 void Bullet::update()
 {
-
+  this->shape.move(sf::Vector2f(cos(this->angle), sin(this->angle)) * 96.f * game.getDt());
 }
 
 void Bullet::render(sf::RenderTarget& target)
