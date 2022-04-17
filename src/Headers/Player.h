@@ -18,7 +18,7 @@ class Player : public Entity
     Player();
     virtual ~Player();
 
-    // Modifiers
+    // Mutators
     void setTexture(sf::Texture* texture);
     void setSpeed(const float speed);
 

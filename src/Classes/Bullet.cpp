@@ -22,6 +22,13 @@ Bullet::~Bullet()
 
 }
 
+// Accessors
+
+const float Bullet::getDespawnTimer()
+{
+  return this->despawnClock.getElapsedTime().asSeconds();
+}
+
 // Functions
 
 void Bullet::update()

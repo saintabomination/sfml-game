@@ -17,7 +17,7 @@ class Block
     Block(const float x, const float y, sf::Texture* texture);
     virtual ~Block();
 
-    // Modifiers
+    // Mutators
     void setTexure(sf::Texture* texture);
 
     // Functions

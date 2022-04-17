@@ -14,7 +14,7 @@ class Entity
     Entity();
     virtual ~Entity();
     
-    // Modifiers
+    // Mutators;
     void setTexure(sf::Texture* texture);
 
     // Functions

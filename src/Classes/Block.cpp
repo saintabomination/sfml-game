@@ -22,7 +22,7 @@ Block::~Block()
 
 }
 
-// Modifiers
+// Mutators
 
 void Block::setTexure(sf::Texture *texture)
 {

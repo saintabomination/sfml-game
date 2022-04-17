@@ -10,10 +10,16 @@ class Bullet : public Entity
     // Initializers
     void initShape(const float x, const float y);
 
+    // Despawn Clock
+    sf::Clock despawnClock;
+
   public:
     // Constructor and Destructor
     Bullet(const float x, const float y, sf::Texture* texture);
     virtual ~Bullet();
+
+    // Accessors
+    const float getDespawnTimer();
 
     // Functions
     void update();

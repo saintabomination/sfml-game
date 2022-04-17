@@ -22,7 +22,7 @@ Player::~Player()
 
 }
 
-// Modifiers
+// Mutators
 
 void Player::setTexture(sf::Texture* texture)
 {

@@ -18,12 +18,13 @@ class Game
 
     // Settings
     float bulletInterval;
+    float bulletDespawnTime;
 
     // Clocks
     sf::Clock dtClock;
-    sf::Clock bulletClock;
+    sf::Clock bulletSpawnClock;
     float dt;
-    float bulletTimer;
+    float bulletSpawnTimer;
 
     // Initializers
     void initWindow();
@@ -46,6 +47,8 @@ class Game
     void updateKeys();
     void updatePlayer();
     void updateView();
+    void updateBullets();
+    void updateBulletDespawns();
     void update();
 
     // Render Functions

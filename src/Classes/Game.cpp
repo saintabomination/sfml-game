@@ -51,12 +51,13 @@ void Game::initTextures()
 void Game::initSettings()
 {
   this->bulletInterval = 0.2f;
+  this->bulletDespawnTime = 1.f;
 }
 
 void Game::initBlocks()
 {
   sf::Image mapImage;
-  if (!mapImage.loadFromFile("src/Assets/Maps/sus.png"))
+  if (!mapImage.loadFromFile("src/Assets/Maps/testing.png"))
   {
     std::cout << "ERROR::GAME::CANT_LOAD_MAP" << std::endl;
   }
@@ -119,9 +120,9 @@ void Game::updateClocks()
 {
   // Delta Time
   this->dt = this->dtClock.restart().asSeconds();
-  
-  // Bullet Clock
-  this->bulletTimer = this->bulletClock.getElapsedTime().asSeconds();
+
+  // Bullet Spawn Clock
+  this->bulletSpawnTimer = this->bulletSpawnClock.getElapsedTime().asSeconds();
 }
 
 void Game::updateKeys()
@@ -146,7 +147,7 @@ void Game::updateKeys()
   }
 
   // Debug: Spawning bullets
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E) && this->bulletTimer > this->bulletInterval)
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E) && this->bulletSpawnTimer > this->bulletInterval)
   {
     this->bullets.push_back(
       Bullet(
@@ -155,7 +156,7 @@ void Game::updateKeys()
         &this->textures[2]
       )
     );
-    this->bulletClock.restart();
+    this->bulletSpawnClock.restart();
   }
 }
 
@@ -177,6 +178,23 @@ void Game::updateView()
   ));
 }
 
+void Game::updateBullets()
+{
+  for (Bullet bullet : this->bullets) bullet.update();
+}
+
+void Game::updateBulletDespawns()
+{
+  for (int i = 0; i < this->bullets.size(); i++)
+  {
+    this->bullets[i].getDespawnTimer();
+    if (this->bullets[i].getDespawnTimer() > 2)
+    {
+      this->bullets.erase(this->bullets.begin() + i);
+    }
+  }
+}
+
 void Game::update()
 {
   this->updateSFMLEvents();
@@ -184,6 +202,8 @@ void Game::update()
   this->updateKeys();
   this->updatePlayer();
   this->updateView();
+  this->updateBullets();
+  this->updateBulletDespawns();
 }
 
 // Render Functions
