@@ -156,14 +156,19 @@ void Game::updateMouse()
 {
   if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
   {
+    sf::Vector2f mousePos(sf::Mouse::getPosition(*this->window));
+    sf::Vector2f playerCenter(
+      this->window->getSize().x / 2 + this->player.getBounds().width / 2,
+      this->window->getSize().y / 2 + this->player.getBounds().height / 2
+    );
+    sf::Vector2f delta(mousePos - playerCenter);
+    delta /= sqrtf(pow(delta.x, 2) + pow(delta.y, 2));
+    
     this->bullets.push_back(
       Bullet(
         this->player.getBounds().left + 12.f,
         this->player.getBounds().top + 12.f,
-        asin(
-          (std::max((float)sf::Mouse::getPosition().y, this->player.getBounds().top) - std::min((float)sf::Mouse::getPosition().y, this->player.getBounds().top)) /
-          (sqrt(pow(fabs((float)sf::Mouse::getPosition().x - this->player.getBounds().left), 2) + pow(fabs((float)sf::Mouse::getPosition().x - this->player.getBounds().top), 2)))
-        ),
+        delta,
         &this->textures[2]
       )
     );

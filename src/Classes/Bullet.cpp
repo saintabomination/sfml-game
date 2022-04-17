@@ -14,10 +14,10 @@ void Bullet::initShape(const float x, const float y)
 
 // Constructor
 
-Bullet::Bullet(const float x, const float y, const float angle, sf::Texture* texture)
+Bullet::Bullet(const float x, const float y, const sf::Vector2f bulletMovement, sf::Texture* texture)
 {
   this->texture = texture;
-  this->angle = angle;
+  this->movement = bulletMovement;
   this->initShape(x, y);
 }
 
@@ -32,7 +32,7 @@ const float Bullet::getDespawnTimer()
 
 void Bullet::update()
 {
-  this->shape.move(sf::Vector2f(cos(this->angle), sin(this->angle)) * 96.f * game.getDt());
+  this->shape.move(this->movement * game.getDt() * 96.f);
 }
 
 void Bullet::render(sf::RenderTarget& target)

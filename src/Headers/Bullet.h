@@ -7,7 +7,7 @@
 class Bullet : public Entity
 {
   private:
-    float angle;
+    sf::Vector2f movement;
 
     // Initializers
     void initShape(const float x, const float y);
@@ -17,7 +17,7 @@ class Bullet : public Entity
 
   public:
     // Constructor and Destructor
-    Bullet(const float x, const float y, const float angle, sf::Texture* texture);
+    Bullet(const float x, const float y, const sf::Vector2f bulletMovement, sf::Texture* texture);
 
     // Accessors
     const float getAngle();
