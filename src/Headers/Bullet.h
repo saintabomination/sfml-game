@@ -7,6 +7,8 @@
 class Bullet : public Entity
 {
   private:
+    float angle;
+
     // Initializers
     void initShape(const float x, const float y);
 
@@ -15,10 +17,11 @@ class Bullet : public Entity
 
   public:
     // Constructor and Destructor
-    Bullet(const float x, const float y, sf::Texture* texture);
+    Bullet(const float x, const float y, const float angle, sf::Texture* texture);
     virtual ~Bullet();
 
     // Accessors
+    const float getAngle();
     const float getDespawnTimer();
 
     // Functions

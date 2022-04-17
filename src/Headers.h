@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 // Other
+#include <cmath>
 #include <vector>
 #include <string>
 #include <fstream>

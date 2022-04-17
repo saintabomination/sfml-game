@@ -11,9 +11,11 @@ void Bullet::initShape(const float x, const float y)
 
 // Constructor and Destructor
 
-Bullet::Bullet(const float x, const float y, sf::Texture* texture)
+Bullet::Bullet(const float x, const float y, const float angle, sf::Texture* texture)
 {
   this->texture = texture;
+  this->angle = angle;
+  std::cout << "Bullet Angle: " << this->angle << std::endl;
   this->initShape(x, y);
 }
 
