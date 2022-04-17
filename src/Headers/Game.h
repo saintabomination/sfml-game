@@ -47,6 +47,7 @@ class Game
     void updateSFMLEvents();
     void updateClocks();
     void updateKeys();
+    void updateMouse();
     void updatePlayer();
     void updateView();
     void updateBullets();

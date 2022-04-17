@@ -127,36 +127,42 @@ void Game::updateClocks()
 
 void Game::updateKeys()
 {
+  sf::Vector2f finalMovementVector;
+
   // WASD Movement
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
   {
-    player.move(0, -1);
+    finalMovementVector.y = -1;
   }
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
   {
-    player.move(0, 1);
+    finalMovementVector.y = 1;
   }
 
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
   {
-    player.move(-1, 0);
+    finalMovementVector.x = -1;
   }
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
   {
-    player.move(1, 0);
+    finalMovementVector.x = 1;
   }
 
-  // Debug: Spawning bullets
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E) && this->bulletSpawnTimer > this->bulletInterval)
+  this->player.move(finalMovementVector);
+}
+
+
+void Game::updateMouse()
+{
+  if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
   {
     this->bullets.push_back(
       Bullet(
         this->player.getBounds().left + 12.f,
         this->player.getBounds().top + 12.f,
-        // Getting the bullet angle by calculating sine
         asin(
-          (std::max(0.f, this->player.getBounds().top) - std::min(0.f, this->player.getBounds().top)) /
-          (sqrt(pow(fabs(0 - this->player.getBounds().left), 2) + pow(fabs(0 - this->player.getBounds().top), 2)))
+          (std::max((float)sf::Mouse::getPosition().y, this->player.getBounds().top) - std::min((float)sf::Mouse::getPosition().y, this->player.getBounds().top)) /
+          (sqrt(pow(fabs((float)sf::Mouse::getPosition().x - this->player.getBounds().left), 2) + pow(fabs((float)sf::Mouse::getPosition().x - this->player.getBounds().top), 2)))
         ),
         &this->textures[2]
       )
@@ -205,6 +211,7 @@ void Game::update()
   this->updateSFMLEvents();
   this->updateClocks();
   this->updateKeys();
+  this->updateMouse();
   this->updatePlayer();
   this->updateView();
   this->updateBullets();

@@ -40,7 +40,15 @@ const sf::FloatRect Player::getBounds() const
 
 void Player::update()
 {
-  
+  sf::Vector2f normalisedVector = this->movement;
+
+  // Normalising vector to prevent moving faster than the maximum speed
+  if (std::abs(this->movement.x) == 1 && std::abs(this->movement.y))
+  {
+    normalisedVector /= sqrtf(pow(this->movement.x, 2) + pow(this->movement.y, 2));
+  }
+
+  this->shape.move(normalisedVector * this->speed * game.getDt());
 }
 
 void Player::render(sf::RenderTarget& target)
@@ -48,12 +56,7 @@ void Player::render(sf::RenderTarget& target)
   target.draw(this->shape);
 }
 
-void Player::move(const int x, const int y)
+void Player::move(sf::Vector2f movement)
 {
-  this->shape.move(
-    sf::Vector2f(
-      x * this->speed * game.getDt(),
-      y * this->speed * game.getDt()
-    )
-  );
+  this->movement = movement;
 }

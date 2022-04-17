@@ -9,6 +9,7 @@ class Player : public Entity
   private:
     // Physics
     float speed;
+    sf::Vector2f movement;
 
     // Initializers
     void initShape();
@@ -27,7 +28,7 @@ class Player : public Entity
     // Functions
     void update();
     void render(sf::RenderTarget& target);
-    void move(const int x, const int y);
+    void move(sf::Vector2f movement);
 };
 
 #endif // PLAYER_H
