@@ -213,11 +213,14 @@ void Game::updateBulletDespawns()
 
 void Game::updateCollisions()
 {
-  for (Block block: this->blocks)
+  for (Block block : this->blocks)
   {
-    if (Collision::AABB(this->player.getBounds(), block.getBounds()))
+    for (int i = 0; i < this->bullets.size(); i++)
     {
-      std::cout << "Collision! " << this->bulletSpawnTimer << std::endl;
+      if (Collision::AABB(block.getBounds(), this->bullets[i].getBounds()))
+      {
+        this->bullets.erase(this->bullets.begin() + i);
+      }
     }
   }
 }
