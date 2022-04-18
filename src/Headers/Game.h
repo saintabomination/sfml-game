@@ -13,6 +13,7 @@ class Game
 {
   private:
     sf::RenderWindow* window;
+    sf::View view;
     sf::Event sfEvent;
     Player player;
     std::vector<sf::Texture> textures;

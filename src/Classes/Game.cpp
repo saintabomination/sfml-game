@@ -21,6 +21,8 @@ void Game::initWindow()
 
   this->window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight), windowTitle);
   this->window->setFramerateLimit(windowFPS);
+
+  this->view.setSize(sf::Vector2f(windowWidth, windowHeight));
 }
 
 void Game::initPlayer()
@@ -184,14 +186,12 @@ void Game::updatePlayer()
 void Game::updateView()
 {
   // Centering the camera
-  this->window->setView(sf::View(
-    sf::FloatRect(
-      this->player.getBounds().left - this->window->getSize().x / 2 + 16,
-      this->player.getBounds().top - this->window->getSize().y / 2 + 16,
-      this->window->getSize().x,
-      this->window->getSize().y
-    )
+  this->view.setCenter(sf::Vector2f(
+    this->player.getBounds().left + this->player.getBounds().width / 2,
+    this->player.getBounds().top + this->player.getBounds().height / 2
   ));
+
+  this->window->setView(this->view);
 }
 
 void Game::updateBullets()
