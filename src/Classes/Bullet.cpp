@@ -32,7 +32,7 @@ const float Bullet::getDespawnTimer()
 
 void Bullet::update()
 {
-  this->shape.move(this->movement * game.getDt() * 96.f);
+  this->shape.move(this->movement * game.getDt() * 400.f);
 }
 
 void Bullet::render(sf::RenderTarget& target)

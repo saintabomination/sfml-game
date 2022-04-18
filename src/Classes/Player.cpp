@@ -8,6 +8,7 @@ extern Game game;
 void Player::initShape()
 {
   this->shape.setSize(sf::Vector2f(32.f, 32.f));
+  this->shape.setPosition(sf::Vector2f(64.f, 64.f));
 }
 
 // Constructor
