@@ -30,13 +30,6 @@ void Player::setSpeed(const float speed)
   this->speed = speed;
 }
 
-// Accessors
-
-const sf::FloatRect Player::getBounds() const
-{
-  return this->shape.getGlobalBounds();
-}
-
 // Functions
 
 void Player::update()

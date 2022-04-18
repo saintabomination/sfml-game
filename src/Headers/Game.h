@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Block.h"
 #include "Bullet.h"
+#include "Collision.h"
 
 class Game
 {
@@ -52,6 +53,7 @@ class Game
     void updateView();
     void updateBullets();
     void updateBulletDespawns();
+    void updateCollisions();
     void update();
 
     // Render Functions

@@ -6,11 +6,8 @@
 class Collision
 {
   public:
-    // Constructor
-    Collision();
-
     // Functions
-    const bool AABB (const sf::FloatRect boxA, const sf::FloatRect boxB) const;
+    static const bool AABB (const sf::FloatRect boxA, const sf::FloatRect boxB);
 };
 
 #endif // COLLISION_H

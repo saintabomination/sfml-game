@@ -211,6 +211,17 @@ void Game::updateBulletDespawns()
   }
 }
 
+void Game::updateCollisions()
+{
+  for (Block block: this->blocks)
+  {
+    if (Collision::AABB(this->player.getBounds(), block.getBounds()))
+    {
+      std::cout << "Collision! " << this->bulletSpawnTimer << std::endl;
+    }
+  }
+}
+
 void Game::update()
 {
   this->updateSFMLEvents();
@@ -221,6 +232,7 @@ void Game::update()
   this->updateView();
   this->updateBullets();
   this->updateBulletDespawns();
+  this->updateCollisions();
 }
 
 // Render Functions

@@ -19,6 +19,9 @@ class Block
     // Mutators
     void setTexure(sf::Texture* texture);
 
+    // Accessors
+    const sf::FloatRect getBounds() const;
+
     // Functions
     void render(sf::RenderTarget& target);
 };

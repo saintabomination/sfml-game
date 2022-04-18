@@ -1,15 +1,8 @@
 #include "../Headers/Collision.h"
 
-// Constructor
-
-Collision::Collision()
-{
-
-}
-
 // Functions
 
-const bool Collision::AABB (const sf::FloatRect boxA, const sf::FloatRect boxB) const
+const bool Collision::AABB (const sf::FloatRect boxA, const sf::FloatRect boxB)
 {
   return (
     boxA.left + boxA.width >= boxB.left &&
