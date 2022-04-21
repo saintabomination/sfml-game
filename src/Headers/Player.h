@@ -19,7 +19,6 @@ class Player : public Entity
     Player();
 
     // Mutators
-    void setTexture(sf::Texture* texture);
     void setSpeed(const float speed);
 
     // Functions

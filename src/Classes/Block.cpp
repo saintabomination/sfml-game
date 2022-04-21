@@ -5,7 +5,7 @@
 void Block::initShape(const float x, const float y)
 {
   this->shape.setSize(sf::Vector2f(32, 32));
-  this->setTexure(this->texture);
+  this->setTexture(this->texture);
   this->shape.setPosition(sf::Vector2f(x, y));
 }
 
@@ -19,7 +19,7 @@ Block::Block(const float x, const float y, sf::Texture* texture)
 
 // Mutators
 
-void Block::setTexure(sf::Texture *texture)
+void Block::setTexture(sf::Texture* texture)
 {
   this->shape.setTexture(texture);
 }

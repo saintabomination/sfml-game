@@ -11,7 +11,8 @@ class Entity
 
   public:
     // Mutators
-    void setTexure(sf::Texture* texture);
+    void setTexture(sf::Texture* texture);
+    void setPosition(sf::Vector2f position);
 
     // Accessors
     const sf::FloatRect getBounds() const;

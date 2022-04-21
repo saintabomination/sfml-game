@@ -20,11 +20,6 @@ Player::Player()
 
 // Mutators
 
-void Player::setTexture(sf::Texture* texture)
-{
-  this->shape.setTexture(texture);
-}
-
 void Player::setSpeed(const float speed)
 {
   this->speed = speed;

@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Block.h"
 #include "Bullet.h"
+#include "BackgroundRect.h"
 #include "Collision.h"
 
 class Game
@@ -16,9 +17,11 @@ class Game
     sf::View view;
     sf::Event sfEvent;
     Player player;
+    sf::FloatRect oldPlayerPosition;
     std::vector<sf::Texture> textures;
     std::vector<Block> blocks;
     std::vector<Bullet> bullets;
+    std::vector<BackgroundRect> backgroundRects;
 
     // Settings
     float bulletInterval;
@@ -36,6 +39,7 @@ class Game
     void initSettings();
     void initPlayer();
     void initBlocks();
+    void initBackgroundRects();
 
   public:
     // Constructor and Destructor
@@ -58,6 +62,7 @@ class Game
     void update();
 
     // Render Functions
+    void renderBackgroundRects();
     void renderPlayer();
     void renderBlocks();
     void renderBullets();
