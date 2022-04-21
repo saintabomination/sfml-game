@@ -48,6 +48,7 @@ void Game::initTextures()
   this->textures.push_back(loadTexture("src/Assets/Textures/player.png"));
   this->textures.push_back(loadTexture("src/Assets/Textures/block.png"));
   this->textures.push_back(loadTexture("src/Assets/Textures/bullet.png"));
+  this->textures.push_back(loadTexture("src/Assets/Textures/grass.png"));
 }
 
 void Game::initSettings()
@@ -77,6 +78,17 @@ void Game::initBlocks()
   }
 }
 
+void Game::initBackgroundRects()
+{
+  this->backgroundRects.push_back(
+    BackgroundRect(
+      sf::Vector2f(0.f, 0.f),
+      sf::Vector2f(1280.f, 960.f),
+      &this->textures[3]
+    )
+  );
+}
+
 // Constructor and Destructor
 
 Game::Game()
@@ -86,6 +98,7 @@ Game::Game()
   this->initSettings();
   this->initPlayer();
   this->initBlocks();
+  this->initBackgroundRects();
 }
 
 Game::~Game()
@@ -240,6 +253,11 @@ void Game::update()
 
 // Render Functions
 
+void Game::renderBackgroundRects()
+{
+  for (BackgroundRect backgroundRect : this->backgroundRects) backgroundRect.render(*this->window);
+}
+
 void Game::renderPlayer()
 {
   this->player.render(*this->window);
@@ -258,6 +276,7 @@ void Game::renderBullets()
 void Game::render()
 {
   this->window->clear();
+  this->renderBackgroundRects();
   this->renderPlayer();
   this->renderBlocks();
   this->renderBullets();
