@@ -9,7 +9,7 @@ class Block
     sf::Texture* texture;
     sf::RectangleShape shape;
 
-    // Initialisers
+    // Initializers
     void initShape(const float x, const float y);
 
   public:

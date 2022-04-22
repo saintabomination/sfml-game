@@ -3,7 +3,7 @@
 
 extern Game game;
 
-// Initialisers
+// Initializers
 
 void Bullet::initShape(const float x, const float y)
 {

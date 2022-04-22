@@ -11,7 +11,7 @@ class Player : public Entity
     float speed;
     sf::Vector2f movement;
 
-    // Initialisers
+    // Initializers
     void initShape();
 
   public:

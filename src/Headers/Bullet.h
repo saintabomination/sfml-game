@@ -9,7 +9,7 @@ class Bullet : public Entity
   private:
     sf::Vector2f movement;
 
-    // Initialisers
+    // Initializers
     void initShape(const float x, const float y);
 
     // Despawn Clock

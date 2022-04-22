@@ -1,6 +1,6 @@
 #include "../Headers/Game.h"
 
-// Initialisers
+// Initializers
 
 void Game::initWindow()
 {
