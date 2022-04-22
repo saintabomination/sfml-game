@@ -3,7 +3,7 @@
 
 extern Game game;
 
-// Initializers
+// Initialisers
 
 void Player::initShape()
 {

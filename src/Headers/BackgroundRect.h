@@ -9,7 +9,7 @@ class BackgroundRect
     sf::RectangleShape shape;
     sf::Texture* texture;
 
-    // Initializers
+    // Initialisers
     void initShape(sf::Vector2f position, sf::Vector2f size);
 
   public:

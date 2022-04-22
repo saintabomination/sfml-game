@@ -32,7 +32,7 @@ class Game
     float dt;
     float bulletSpawnTimer;
 
-    // Initializers
+    // Initialisers
     void initWindow();
     void initTextures();
     void initSettings();

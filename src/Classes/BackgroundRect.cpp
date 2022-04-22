@@ -1,6 +1,6 @@
 #include "../Headers/BackgroundRect.h"
 
-// Initializers
+// Initialisers
 void BackgroundRect::initShape(sf::Vector2f position, sf::Vector2f size)
 {
   this->shape.setPosition(position);

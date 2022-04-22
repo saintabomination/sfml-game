@@ -1,6 +1,6 @@
 #include "../Headers/Block.h"
 
-// Initializers
+// Initialisers
 
 void Block::initShape(const float x, const float y)
 {
