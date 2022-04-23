@@ -4,33 +4,34 @@ HEADERS=src/Headers
 BUILDFOLDER=build
 EXECUTABLE=sfml-game
 
-$(EXECUTABLE): Main.o BackgroundRect.o Block.o Bullet.o Collision.o Entity.o Game.o Player.o
+$(EXECUTABLE): out/Main.o out/BackgroundRect.o out/Block.o out/Bullet.o out/Collision.o out/Entity.o out/Game.o out/Player.o
 	mkdir -p $(BUILDFOLDER)
-	$(CC) Main.o BackgroundRect.o Block.o Bullet.o Collision.o Entity.o Game.o Player.o -o $(BUILDFOLDER)/$(EXECUTABLE) -I ${HEADERS} ${LIBFLAGS}
+	$(CC) out/Main.o out/BackgroundRect.o out/Block.o out/Bullet.o out/Collision.o out/Entity.o out/Game.o out/Player.o -o $(BUILDFOLDER)/$(EXECUTABLE) -I ${HEADERS} ${LIBFLAGS}
 
-Main.o: src/Main.cpp
-	$(CC) -c src/Main.cpp -o Main.o
+out/Main.o: src/Main.cpp
+	mkdir -p out
+	$(CC) -c src/Main.cpp -o out/Main.o
 
-BackgroundRect.o: src/Classes/BackgroundRect.cpp
-	$(CC) -c src/Classes/BackgroundRect.cpp -o BackgroundRect.o
+out/BackgroundRect.o: src/Classes/BackgroundRect.cpp
+	$(CC) -c src/Classes/BackgroundRect.cpp -o out/BackgroundRect.o
 
-Block.o: src/Classes/Block.cpp
-	$(CC) -c src/Classes/Block.cpp -o Block.o
+out/Block.o: src/Classes/Block.cpp
+	$(CC) -c src/Classes/Block.cpp -o out/Block.o
 
-Bullet.o: src/Classes/Bullet.cpp
-	$(CC) -c src/Classes/Bullet.cpp -o Bullet.o
+out/Bullet.o: src/Classes/Bullet.cpp
+	$(CC) -c src/Classes/Bullet.cpp -o out/Bullet.o
 
-Collision.o: src/Classes/Collision.cpp
-	$(CC) -c src/Classes/Collision.cpp -o Collision.o
+out/Collision.o: src/Classes/Collision.cpp
+	$(CC) -c src/Classes/Collision.cpp -o out/Collision.o
 
-Entity.o: src/Classes/Entity.cpp
-	$(CC) -c src/Classes/Entity.cpp -o Entity.o
+out/Entity.o: src/Classes/Entity.cpp
+	$(CC) -c src/Classes/Entity.cpp -o out/Entity.o
 
-Game.o: src/Classes/Game.cpp
-	$(CC) -c src/Classes/Game.cpp -o Game.o
+out/Game.o: src/Classes/Game.cpp
+	$(CC) -c src/Classes/Game.cpp -o out/Game.o
 
-Player.o: src/Classes/Player.cpp
-	$(CC) -c src/Classes/Player.cpp -o Player.o
+out/Player.o: src/Classes/Player.cpp
+	$(CC) -c src/Classes/Player.cpp -o out/Player.o
 
 clean:
-	rm -rf build *.o
+	rm -rf build out
