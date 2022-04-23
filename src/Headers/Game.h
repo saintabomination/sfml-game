@@ -34,6 +34,9 @@ class Game
     float dt;
     float bulletSpawnTimer;
 
+    // Sound Instances
+    sf::Sound bulletCrashSounds;
+
     // Initializers
     void initWindow();
     void initTextures();

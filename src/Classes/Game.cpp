@@ -67,6 +67,7 @@ sf::SoundBuffer loadSound(std::string path)
 void Game::initSounds()
 {
   this->sounds.push_back(loadSound("src/Assets/Sounds/bullet-crash.wav"));  
+  this->bulletCrashSounds.setBuffer(this->sounds[0]);
 }
 
 void Game::initSettings()
@@ -113,6 +114,7 @@ Game::Game()
 {
   this->initWindow();
   this->initTextures();
+  this->initSounds();
   this->initSettings();
   this->initPlayer();
   this->initBlocks();
@@ -253,6 +255,7 @@ void Game::updateCollisions()
       if (Collision::AABB(block.getBounds(), this->bullets[i].getBounds()))
       {
         this->bullets.erase(this->bullets.begin() + i);
+        this->bulletCrashSounds.play();
       }
     }
 
