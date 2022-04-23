@@ -37,4 +37,4 @@ ICBM but it works!
 * assets - `/src/Assets/`
 
 The `/build/` directory, `/out/` directory, and `/build/sfml-game` executable are created when compiling
-the code.
+the code. Maps are generated from images located inside the `/src/Assets/Maps/` directory.

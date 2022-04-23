@@ -19,6 +19,7 @@ class Game
     Player player;
     sf::FloatRect oldPlayerPosition;
     std::vector<sf::Texture> textures;
+    std::vector<sf::SoundBuffer> sounds;
     std::vector<Block> blocks;
     std::vector<Bullet> bullets;
     std::vector<BackgroundRect> backgroundRects;
@@ -36,6 +37,7 @@ class Game
     // Initializers
     void initWindow();
     void initTextures();
+    void initSounds();
     void initSettings();
     void initPlayer();
     void initBlocks();

@@ -1,5 +1,5 @@
 CC=g++
-LIBFLAGS=-lsfml-graphics -lsfml-window -lsfml-system
+LIBFLAGS=-lsfml-graphics -lsfml-audio -lsfml-window -lsfml-system
 HEADERS=src/Headers
 BUILDFOLDER=build
 EXECUTABLE=sfml-game

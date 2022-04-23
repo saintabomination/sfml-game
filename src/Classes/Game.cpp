@@ -51,6 +51,24 @@ void Game::initTextures()
   this->textures.push_back(loadTexture("src/Assets/Textures/grass.png"));
 }
 
+// Non-member function to simplify loading sounds
+
+sf::SoundBuffer loadSound(std::string path)
+{
+  sf::SoundBuffer sound;
+  if (!sound.loadFromFile(path))
+  {
+    std::cout << "ERROR::GAME::CANT_LOAD_SOUND" << std::endl;
+  }
+
+  return sound;
+}
+
+void Game::initSounds()
+{
+  this->sounds.push_back(loadSound("src/Assets/Sounds/bullet-crash.wav"));  
+}
+
 void Game::initSettings()
 {
   this->bulletInterval = 0.2f;
